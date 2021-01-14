@@ -140,7 +140,11 @@ public class Exercises {
         15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
         case. How much money does she have left?
         */
-       
+        double hiltHas = 10.00;
+        double toyTruck = 3.00;
+        double pencil = 2.00;
+        double moneyLeft = hiltHas - toyTruck - pencil;
+        System.out.println(hiltHas - toyTruck - pencil);
         /*
         16. Josh had 16 marbles in his collection. He lost 7 marbles. How many
         marbles does he have now?
@@ -184,7 +188,12 @@ public class Exercises {
         21. Mrs. Hilt bought an ice cream cone for 99 cents. How much would 2 ice
         cream cones cost?
         */
+        int boughtCones = 2;
+        double price = .99;
+        double costOfTwoCones = boughtCones * price;
+        System.out.println(costOfTwoCones * boughtCones);
         
+   
         /*
         22. Mrs. Hilt wants to make a border around her garden. She needs 125
         rocks to complete the border. She has 64 rocks. How many more rocks
@@ -215,28 +224,43 @@ public class Exercises {
         morning and 45 minutes shoveling snow on Saturday afternoon. How
         much total time did she spend shoveling snow?
         */
-        
+        int satMorning = 90;
+        int satAfternoon = 45;
+        int totalMinutes = satMorning + satAfternoon;
+        System.out.println(satMorning + satAfternoon);
         /*
         26. Mrs. Hilt bought 6 hot dogs. Each hot dog cost 50 cents. How much
         money did she pay for all of the hot dogs?
         */
-  
+        int hotdogsBought = 6;
+        double pricePerHotDog = 0.50;
+        double totalCost = hotdogsBought * pricePerHotDog;
+        System.out.println(hotdogsBought * pricePerHotDog);
         /*
         27. Mrs. Hilt has 50 cents. A pencil costs 7 cents. How many pencils can
         she buy with the money she has?
         */
-        
+        int hiltMoney = 50;
+        int pencilCost = 7;
+        int canBuy = hiltMoney / pencilCost;
+        System.out.println(hiltMoney / pencilCost);
         /*
         28. Mrs. Hilt saw 33 butterflies. Some of the butterflies were red and others
         were orange. If 20 of the butterflies were orange, how many of them
         were red?
         */
-
+        int butterfliesSeen = 33;
+        int orangeButterflies = 20;
+        int redButterflies = butterfliesSeen - orangeButterflies;
+        System.out.println(butterfliesSeen - redButterflies);
         /*
         29. Kate gave the clerk $1.00. Her candy cost 54 cents. How much change
         should Kate get back?
         */
-
+        double kateGave = 1.00;
+        double kateCandy = 0.54;
+        double changeBack = kateGave - kateCandy;
+        System.out.println(kateGave - kateCandy);
         /*
         30. Mark has 13 trees in his backyard. If he plants 12 more, how many trees
         will he have?
@@ -267,7 +291,10 @@ public class Exercises {
         33. Dan has $3.00. He bought a candy bar for $1.00. How much money is
         left?
         */
-        
+        double danHad = 3.00;
+        double candyBar = 1.00;
+        double danMoneyLeft = danHad - candyBar;
+        System.out.println(danHad - candyBar);
         /*
         34. 5 boats are in the lake. Each boat has 3 people. How many people are
         on boats in the lake?
@@ -324,67 +351,101 @@ public class Exercises {
         tiny glass jars. If each jar is to contain six cookies each, how many
         cookies will not be placed in a jar?
         */
-        
+        int gingerbreadCookies = 47;
+        int perJar = 6;
+        int notInJar = gingerbreadCookies % perJar;
         /*
         41. She also prepared 59 croissants which she plans to give to her 8
         neighbors. If each neighbor received and equal number of croissants,
         how many will be left with Marian?
         */
-       
+        int croissants = 59;
+        int neighbors = 8;
+        int marian = croissants % neighbors;
+        System.out.println(croissants % neighbors);
         /*
         42. Marian also baked oatmeal cookies for her classmates. If she can
         place 12 cookies on a tray at a time, how many trays will she need to
         prepare 276 oatmeal cookies at a time?
         */
-
+        int cookiesOnTray = 12;
+        int cookiesNeeded = 276;
+        int traysNeeded = cookiesNeeded / cookiesOnTray;
+        System.out.println(cookiesNeeded / cookiesOnTray );
         /*
         43. Marian’s friends were coming over that afternoon so she made 480
         bite-sized pretzels. If one serving is equal to 12 pretzels, how many
         servings of bite-sized pretzels was Marian able to prepare?
         */
-
+        int totalPretzels = 480;
+        int oneServing = 12;
+        int servingsNeeded = totalPretzels / oneServing;
+        System.out.println(totalPretzels / oneServing);
         /*
         44. Lastly, she baked 53 lemon cupcakes for the children living in the city
         orphanage. If two lemon cupcakes were left at home, how many
         boxes with 3 lemon cupcakes each were given away?
         */
-
+        int lemonCupcakes = 50;
+        int cupcakesPerBox = 3;
+        int boxesGivenAway = lemonCupcakes / cupcakesPerBox;
+        System.out.println(lemonCupcakes / cupcakesPerBox);
         /*
         45. Susie's mom prepared 74 carrot sticks for breakfast. If the carrots
         were served equally to 12 people, how many carrot sticks were left
         uneaten?
         */
-
+        int carrotSticks = 74;
+        int people = 12;
+        int leftUneaten = carrotSticks % people;
+        System.out.println(carrotSticks % people);
         /*
         46. Susie and her sister gathered all 98 of their teddy bears and placed
         them on the shelves in their bedroom. If every shelf can carry a
         maximum of 7 teddy bears, how many shelves will be filled?
         */
-
+        int totalTeddyBears = 98;
+        int teddysPerShelf = 7;
+        int filledShelves = totalTeddyBears / teddysPerShelf;
+        System.out.println(totalTeddyBears / teddysPerShelf);
+       
         /*
         47. Susie’s mother collected all family pictures and wanted to place all of
         them in an album. If an album can contain 20 pictures, how many
         albums will she need if there are 480 pictures?
         */
-
+        int totalPictures = 480;
+        int albumHolds = 20;
+        int albumsNeeded = totalPictures / albumHolds; 
+        System.out.println(totalPictures / albumHolds);
         /*
         48. Joe, Susie’s brother, collected all 94 trading cards scattered in his
         room and placed them in boxes. If a full box can hold a maximum of 8
         cards, how many boxes were filled and how many cards are there in
         the unfilled box?
         */
-
+        int scatteredTradingCards = 94;
+        int boxCanHold = 8;
+        int boxesfilled = scatteredTradingCards / boxCanHold;
+        System.out.println(scatteredTradingCards / boxCanHold);
         /*
         49. Susie’s father repaired the bookshelves in the reading room. If he has
         210 books to be distributed equally on the 10 shelves he repaired,
         how many books will each shelf contain?
         */
+         int totalBooks = 210;
+         int repairedShelves = 10;
+         int booksPerShelf = totalBooks / repairedShelves; 
+         System.out.println(totalBooks / repairedShelves);
 
         /*
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
-
+        int croissantsBaked = 17;
+        int guests = 7;
+        int eachWillHave = croissantsBaked / guests; 
+        System.out.println(croissantsBaked / guests);
         /*
             CHALLENGE PROBLEMS
         */
