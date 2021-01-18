@@ -10,7 +10,7 @@ public class Exercises {
 	 firstLast6([13, 6, 1, 2, 3]) → false
 	 */
 	public boolean firstLast6(int[] nums) {
-		if (nums[0] == 6 || nums [nums.length-1] == 6) {
+		if (nums[0] == 6 || nums[nums.length-1] == 6) {
 		return true;
 	}
 		return false;
@@ -23,13 +23,14 @@ public class Exercises {
 	 sameFirstLast([1, 2, 3, 1]) → true
 	 sameFirstLast([1, 2, 1]) → true
 	 */
-	public boolean sameFirstLast(int[] nums) {
+	public boolean sameFirstLast(int [] nums) {
 		if (nums.length < 1) {
 		return false;
 	}
-		if (nums[0] == nums[nums/length-1]) {
+		if (nums[0] == nums[nums.length - 1]) {
 			return true;
 		}
+		return false;
 	}
 	/*
 	 3. Return an int array length 3 containing the first 3 digits of pi, {3, 1, 4}.
@@ -49,7 +50,13 @@ public class Exercises {
 	 commonEnd([1, 2, 3], [1, 3]) → true
 	 */
 	public boolean commonEnd(int[] a, int[] b) {
-		return false;
+		if (a[a.length- 1] == b[b.length-1])
+		return true;
+	    if (a[0] == b[0])
+		return true;
+	    else { 
+	    	return false;
+	    }
 	}
 
 	/*
@@ -60,7 +67,7 @@ public class Exercises {
 	 */
 	public int sum3(int[] nums) {
 		int sum = 0; 
-		for (int i=0; i < nums.length-1; i++) {
+		for (int i=0; i < nums.length; i++) {
 			sum = sum + nums[i]; 
 		 }
 		return sum;
@@ -74,7 +81,12 @@ public class Exercises {
 	 rotateLeft3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] rotateLeft3(int[] nums) {
-		return new int[] {};
+		int first = nums[0];
+		for (int i = 0; i < nums.length-1; i++) {
+		nums[i] = nums[i+1];
+		}
+		nums[nums.length-1] = first;
+		return nums;
 	}
 
 	/*
@@ -85,8 +97,13 @@ public class Exercises {
 	 reverse3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] reverse3(int[] nums) {
-		return new int[] {};
-	}
+	    int temp = nums[0];
+		for (int i = 0; i < nums.length/2; i++) {
+			nums[i] = nums[nums.length-i - 1]; 
+				nums[nums.length-i-1] = temp;
+				}
+		    }
+		
 
 	/*
 	 8. Given an array of ints length 3, figure out which is larger between the first and last elements 
@@ -107,7 +124,7 @@ public class Exercises {
 	 sum2([1, 1, 1, 1]) → 2
 	 */
 	public int sum2(int[] nums) {
-		return 0;
+		
 	}
 
 	/*
@@ -153,6 +170,8 @@ public class Exercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
+		
+	}
 		return false;
 	}
 	
@@ -176,4 +195,4 @@ public class Exercises {
 		return false;
 	}
 
-}
+
