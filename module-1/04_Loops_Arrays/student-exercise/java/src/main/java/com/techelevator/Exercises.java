@@ -102,6 +102,7 @@ public class Exercises {
 			nums[i] = nums[nums.length-i - 1]; 
 				nums[nums.length-i-1] = temp;
 				}
+		    return nums;
 		    }
 		
 
@@ -124,7 +125,6 @@ public class Exercises {
 	 sum2([1, 1, 1, 1]) → 2
 	 */
 	public int sum2(int[] nums) {
-		
 	}
 
 	/*
@@ -146,7 +146,13 @@ public class Exercises {
 	 countEvens([1, 3, 5]) → 0
 	 */
 	public int countEvens(int[] nums) {
-		return 0;
+		int countEvens = 0;
+		for (int i= 0; i < nums.length; i ++)
+{
+	   if(nums [i] % 2 == 0)
+          countEvens++;
+	   }
+		return countEvens;
 	}
 
 	/*
@@ -160,7 +166,14 @@ public class Exercises {
 	 sum13([1, 2, 2, 1, 13, 3, 4]) → 10
 	 */
 	public int sum13(int[] nums) {
-		return 0;
+		int sum = 0;
+		for(int i = 0; i < nums.length; i++) 
+		{
+		if(nums[1] == 13) i++;
+		else
+		sum += nums[1];
+		}
+		return sum;
 	}
 
 	/*
@@ -170,10 +183,14 @@ public class Exercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
+		for(int i = 0; i < nums.length-1; i++)
+		{
+		if(nums[i] == 2 && nums[i-1] == 2)
+	     return true;
+		}
 		
-	}
 		return false;
-	}
+}
 	
 	/*
 	 14. Given an array of ints, return true if the array contains no 1's and no 3's.
@@ -182,7 +199,12 @@ public class Exercises {
 	 lucky13([1, 2, 4]) → false
 	 */
 	public boolean lucky13(int[] nums) {
+		for(int i = 0; i < nums.length; i++)
+		{
+	    if(nums[1] == 1 || nums[1] == 3)
 		return false;
+		}
+		return true;
 	}
 
 	/*
@@ -192,7 +214,13 @@ public class Exercises {
 	 sum28([1, 2, 3, 4]) → false
 	 */
 	public boolean sum28(int[] nums) {
-		return false;
+		int sum = 0;
+		for(int i = 0; i < nums.length; i++)
+		{
+			if(nums[1] == 2) sum += 2;
+		}
+		return (sum == 8);	
+		}
 	}
 
 

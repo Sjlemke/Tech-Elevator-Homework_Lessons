@@ -14,9 +14,14 @@ public class Lecture {
 		 * is not the case for most classes */
 
 		/* create an new instance of String using a literal */
-
-
-
+        /*data type = new String(); OR String name = "some value";
+         * A string literal is enclosed "" - a series of char
+         * A char literal is enclosed in '' - char is a SINGLE character. 
+         * a string is NOT a char and a char is not a String
+         */
+     String softDrink = "Diet Mtn Dew";
+     String beverage = softDrink + " by Pepsi";
+     System.out.println(beverage);
 //--------------------------------------------------------------------------------------------------------		
 		System.out.println();
 		System.out.println("******************************");

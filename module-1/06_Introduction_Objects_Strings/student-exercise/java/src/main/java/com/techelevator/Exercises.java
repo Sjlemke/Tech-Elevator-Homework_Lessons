@@ -9,9 +9,8 @@ public class Exercises {
 	 helloName("X") → "Hello X!"
 	 */
 	public String helloName(String name) {
-		return null;
+		return "Hello " + name + "!";
 	}
-
 	/*
 	 Given two strings, a and b, return the result of putting them together in the order abba,
 	 e.g. "Hi" and "Bye" returns "HiByeByeHi".
@@ -20,7 +19,9 @@ public class Exercises {
 	 makeAbba("What", "Up") → "WhatUpUpWhat"
 	 */
 	public String makeAbba(String a, String b) {
-		return null;
+		return a + b + b + a;
+		
+
 	}
 
 	/*
@@ -32,6 +33,7 @@ public class Exercises {
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
+		<=>
 		return null;
 	}
 
@@ -56,7 +58,7 @@ public class Exercises {
 	 */
 	public String extraEnd(String str) {
 		return null;
-	}
+	} //use substring
 
 	/*
 	 Given a string, return the string made of its first two chars, so the String "Hello" yields "He". If the
