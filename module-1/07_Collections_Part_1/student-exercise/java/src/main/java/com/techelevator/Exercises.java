@@ -16,7 +16,11 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		ArrayList<String> result = new ArrayList<String>();
+		for(int i=0; i < stringArray.length; i++) {
+		result.add(stringArray[i]);
+		}
+		return result;
 	}
 
 	/*
@@ -26,7 +30,12 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] result = new String[stringList.size()];
+		for(int i=0; i < stringList.size(); i++) {
+			result[i] = stringList.get(i);
+		}
+		
+		return result;
 	}
 
 	/*
@@ -37,9 +46,14 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
-	}
-
+		ArrayList<String> result = new ArrayList<String>();
+		for (int i = 0; i < stringArray.length; i++) {
+		if(stringArray[i].length() !=4 ) {
+		result.add(stringArray[i]);
+		}
+		}
+       return result;
+}
 	/*
 	 Given an array of ints, divide each int by 2, and return an ArrayList of Doubles.
 	 arrayInt2ListDouble( {5, 8, 11, 200, 97} ) -> [2.5, 4.0, 5.5, 100, 48.5]
@@ -47,7 +61,11 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> result = new ArrayList<Double>();
+		for(int i=0; i < intArray.length; i++) {
+	    result.add(intArray[i]/2.0);
+		}
+		return result;
 	}
 
 	/*
@@ -67,6 +85,7 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
+		
 		return null;
 	}
 
@@ -78,6 +97,8 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		
+		
 		return false;
 	}
 
@@ -95,6 +116,7 @@ public class Exercises {
 	 equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
+
 		return null;
 	}
 
@@ -106,7 +128,31 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+		List<Integer> newList = new ArrayList<Integer>();
+		boolean firstShorter = listOne.size() < listTwo.size();
+		int sizeOfShorter = 0;
+		if(firstShorter) {
+			sizeOfShorter = listOne.size();
+		}
+		else {
+			sizeOfShorter = listTwo.size();
+		}
+		for (int i = 0; i < sizeOfShorter; i++) {
+		 newList.add(listOne.get(i));
+		 newList.add(listTwo.get(i));	
+		}
+		if (firstShorter) {
+			for(int i = sizeOfShorter; i < listTwo.size(); i++) {
+				newList.add(listTwo.get(i));
+		    }
+		}
+		else {
+			for(int i = sizeOfShorter; i < listOne.size(); i++) {
+				newList.add(listOne.get(i));
+			}
+		}
+		return newList;
 	}
+
 
 }

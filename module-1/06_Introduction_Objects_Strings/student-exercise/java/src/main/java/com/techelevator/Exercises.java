@@ -266,17 +266,8 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		String ending = "";
-		String front = str.substring(0, str.length() - 1); 
-		if (str.length() < 3) {
-		}
-		front = str.substring(0,3);
-		for (int i = 0; i < n; i++) 
-		{
-			ending += front;
-		}
-		return ending;
-	}
+		
+		return null; }
 
 	/*
 	 Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx".
@@ -286,9 +277,8 @@ public class Exercises {
 	 */
 	public int countXX(String str) {
 		int xx = 0;
-		for (int i = str.indexOf( "xx" ); i != -1; str.indexOf( "xx", i + 1 ))
-      {
-    	  xx++;
+		for (int i = 0; i < str.length()-1; i++) {
+			if(str.substring(i, i + 2).equals("xx")) xx++;
       }
 		return xx;
 	}
@@ -401,16 +391,17 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		String newStr = "";
-		int positionOfYak = 0;
-		
-		if (str.contains("yak")) {
-			positionOfYak = str.indexOf ("yak");
-		}
-		if (str.endsWith("yak") == false) {
-			newStr += str.substring(positionOfYak + 3);
-		}
-		return newStr;
+		String yak = "";
+		for (int i = 0; i <str.length(); i++) {
+			if (i + 2 < str.length() && str.charAt(i) == 'y' && str.charAt(i + 2) == 'k')
+         {
+	         i+=2;
+         }
+        else 
+        {
+        	yak +=str.charAt(i);
+        }
+	}
+		return yak;
 	}
 }
-	
