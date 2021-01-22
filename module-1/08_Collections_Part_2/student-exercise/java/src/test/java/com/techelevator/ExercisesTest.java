@@ -13,10 +13,11 @@ import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ExercisesTest {
+public class ExercisesTest 
+	{
 
-	final double DOUBLE_FUDGE_FACTOR = 0.001d;
-
+	final double  DOUBLE_FUDGE_FACTOR = 0.001d;
+	
 	Exercises exercises = new Exercises();
 
 	/*

@@ -37,20 +37,30 @@ public class Exercises {
 		String groupName = "";
 		
 		if (animalName == null) {
-			return "unknown";
+			return "unknown"; 
 		}
 		
-		Map<String, String> animalGroup = new HashMap();
+		Map<String, String> animalGroup = new HashMap<String, String>();
 		animalGroup.put("rhino", "Crash");
 		animalGroup.put("giraffe", "Tower");
 		animalGroup.put("elephant", "Herd");
 		animalGroup.put("lion", "Pride");
 		animalGroup.put("crow", "Murder");
-		
+		animalGroup.put("pigeon", "Kit");
+		animalGroup.put("flamingo", "Pat");
+		animalGroup.put("Deer", "Herd");
+        animalGroup.put("dog", "Pack");
+        animalGroup.put("crocodile", "Float");
+        
 		groupName = animalGroup.get(animalName.toLowerCase());
 		
-		return groupName;
+		if (groupName == null) {
+			groupName = "unknown";
+		}
+		
+		return groupName; 
 	}
+	
 
 	/*
 	 * Given an String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
@@ -75,6 +85,8 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
+
+		
 		return -1.0;
 	}
 
@@ -114,8 +126,15 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		Map <String, String> beginningEnd = new HashMap <String, String>();
+		for (int i= 0; i < words.length; i++) {
+		String firstCharacter = words[i].substring(0,1);
+		String lastCharacter = words[i].substring((words[i].length()) -1);
+		beginningEnd.put(firstCharacter, lastCharacter);
+		}
+		return beginningEnd;
 	}
+		
 
 	/*
 	 * Given an array of Strings, return a Map<String, Integer> with a key for each different String, with the value the
@@ -130,7 +149,19 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
+		Map <String, Integer> wordCount = new HashMap<String, Integer>();
+		for (int i = 0; i < words.length; i++) {
+			String firstTwo = words[i];
+		if (wordCount.containsKey(firstTwo)) {
+			int count = wordCount.get(firstTwo);
+
+		wordCount.put(firstTwo, count + 1); 
+		}
+	        else
+	        wordCount.put(firstTwo, 1);
+		}
+
+		return wordCount;
 	}
 
 	/*
@@ -145,7 +176,11 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> integerCount= new HashMap <Integer, Integer>();
+		for(int i=0; i < ints.length; i++ ) {
+			
+		}
+		return integerCount;
 	}
 
 	/*
@@ -158,9 +193,23 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		Map<String, Integer> strings = new HashMap<String, Integer>();
+		Map<String, Boolean> wordMultiple = new HashMap<String, Boolean>();
+		for(int i = 0; i < words.length; i++) {
+			String key = words[i];
+			if(strings.containsKey(key)) {
+				int count = strings.get(key);
+				count++;
+				strings.put(key,  count);
+			}
+			else {	
+					strings.put(key, 1);
+			}
+		}
+	
+		return wordMultiple;
 	}
-
+   
 	/*
 	 * Given two Maps, Map<String, Integer>, merge the two into a new Map, Map<String, Integer> where keys in Map2,
 	 * and their int values, are added to the int values of matching keys in Map1. Return the new Map.
