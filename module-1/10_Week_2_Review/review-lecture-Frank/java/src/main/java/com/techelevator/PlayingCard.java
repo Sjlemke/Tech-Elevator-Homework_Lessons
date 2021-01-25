@@ -19,6 +19,7 @@ package com.techelevator;
 public class PlayingCard {
 	/*********************************************************************************************
 	 * static - means there is only copy - shared by all objects
+	 *
 	 * 
 	 * No matter how many objects of the class exist there is only one copy of the static data
 	 * 
@@ -27,7 +28,7 @@ public class PlayingCard {
 	 * non-static variables are referred to as instance variables because they exist for each
 	 *            instance of the class
 	 *            
-	 * static data members can only be changed by static methods.
+	 * static data members can only be changed by static methods. 
 	 * 
 	 * static methods can only refer to static data members
 	 * 
@@ -38,14 +39,22 @@ public class PlayingCard {
 	 *      System.out.println()   -   System is the class name; out is the object; println() is the method
 	 * 
 	 *      Integer.parseInt()     -   Integer is the class name; parseInt() is the method
+	 * main() is always static because there can only be one in an application. It is the starting method of all teh applications
+	 *      
+	 * Java naming conventions wants constant names to be in ALL UPPERCASE
+	 //the keyword this represents the current object - hte object used to invoke he method.
+	  * this is the object to the left of the . when a method is invoked: object.method(parameters)
+	  * in a contructor it is ONLY REQUIRED when a parameter name is the SAME NAME as a data member.
+	  * 
 	 ********************************************************************************************/
 	//********************************************************************************************
 	// Class member constants 
 	//********************************************************************************************
-	private final int MINVALUE    = 0;             // Minimum valid card value 
-	private final int MAXVALUE    = 13;            // Maximum valid card value
-	private final int JOKER_VALUE = 0;             // Joker value - No considered valid
-	private final int DEFAULT_VALUE = JOKER_VALUE; // Used if no value provided
+	// 
+	private final static int MINVALUE    = 0;             // Minimum valid card value 
+	private final static int MAXVALUE    = 13;            // Maximum valid card value
+	private final static int JOKER_VALUE = 0;             // Joker value - No considered valid
+	private final static int DEFAULT_VALUE = JOKER_VALUE; // Used if no value provided
 		
 	//********************************************************************************************	
 	// Class member data - attributes of an class object
@@ -58,7 +67,7 @@ public class PlayingCard {
 	
 //********************************************************************************************
 // Constructors for the class
-//
+// Constructors are special 
 // Constructors have the same name as the class have no return type - NOT EVEN void	
 //
 // Constructors are frequently overloaded (same name, same behavior,  different parameters)
@@ -66,7 +75,7 @@ public class PlayingCard {
 //*********************************************************************************************	
 	/**
 	 * default constructor - has no parameters
-	 */
+	 */ // no parameters 
 	public PlayingCard() {  
 		value   = DEFAULT_VALUE;
 		suit    = "Clubs";
@@ -79,11 +88,11 @@ public class PlayingCard {
 	 */
 	public PlayingCard(int value, String suit, String color, boolean showing) {
 		setValue(value);          // Use member method to set value in case value passed is invalid
-		this.suit    = suit;
-		this.showing = showing;
+		this.suit    = suit;        //this. is required because the parameter name is hte same as the data
+		this.showing = showing;    //this. is required becayse the param name is the saem as the data member.
 		determineColor();         // Use class member method to set the color based on the suit
 		                          //     ignore color sent is as a parameter by user
-		shape="Rectangle";
+		shape="Rectangle";         //this. is not required because we are not using a variable
 	}
 	/**
 	 * 2-arg constructor
@@ -156,7 +165,7 @@ public class PlayingCard {
 		if (value >= MINVALUE && value <= MAXVALUE) { // Is the value passed in the range for a valid card?
 			this.value = value;                       //     Yes - assign it to the value data member
 		}
-		else {
+		else {                                        //you want data name and parameter name to be the same
 			this.value = DEFAULT_VALUE;               //     No - assign DEFAULT_VALUE to value data member
 			}
 	}
@@ -186,6 +195,8 @@ public class PlayingCard {
 	
 	public boolean isFaceCard() {
 		return (getValue() >= 11);  // use class method to retrieve class data
+		                             //in case the class does something to the data we dont want to miss. 
+		                             //always good to use the class methods instead of accessing data directly
 	}
 	/**
 	 * Flip card from showing to not showing
@@ -214,7 +225,7 @@ public class PlayingCard {
 	 */
 	// Display the attributes of a PlayingCard 
 	public void showCard() {
-		System.out.println("      Suit: " + suit);
+		System.out.println("      Suit: " + getSuit);
 		System.out.println("     Value: " + value);
 		System.out.println("     Color: " + color);
 		System.out.println("   Showing: " + showing);
@@ -237,6 +248,25 @@ public class PlayingCard {
 		return "PlayingCard [suit=" + suit + ", value=" + value + ", color=" + color + ", showing=" + showing
 				            + "shape=" + shape +"]";
 	}
+	
+	public boolean equals(PlayingCard otherCard ) {
+		//since this is our class we decide what makes a PlayingCard equal to another PlayingCard
+		//A PlayingCard is equal to another playing card if value and suit are the same
+	    //to use this method one would code aPlayingCard object.equals(aPlayingCardObject) }
+		//we coded card4.equals(card5)
+		//this reprensents card 4 and otherCard represents card5. 
+		//this always means the object to the  left of the . that invokes the method. this means current object is the object used to invoke the method(to the left of teh .)
+		//the term this always means the current object. which is card4 in this one. parameter is card5. 
+		
+		if((this.value == otherCard.value) && (this.suit.equals(otherCard.suit))) {
+		return true;
+	}
+	else {
+		return false;
+	}
+	}
+	
+	
 }
 
 

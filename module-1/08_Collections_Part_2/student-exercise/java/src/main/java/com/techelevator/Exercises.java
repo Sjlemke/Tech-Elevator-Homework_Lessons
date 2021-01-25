@@ -85,9 +85,27 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
+		if (itemNumber =="" || itemNumber == null)
+			return 0.00;
+		itemNumber = itemNumber.toLowerCase(); 
+		switch(itemNumber) {
+		  case "kitchen4001":
+		    return 0.20;
+		  case "garage1070":
+			  return 0.15;
+		  case "livingroom":
+			  return 0.10;
+		  case "kitchen6073":
+		      return 0.40;
+		  case "bedroom3434":
+			  return 0.60;
+		  case "bathroom73":
+			  return 0.15;
+		  default:
+			  return 0.0;
+	
+		}
 
-		
-		return -1.0;
 	}
 
 	/*
@@ -178,8 +196,14 @@ public class Exercises {
 	public Map<Integer, Integer> integerCount(int[] ints) {
 		Map<Integer, Integer> integerCount= new HashMap <Integer, Integer>();
 		for(int i=0; i < ints.length; i++ ) {
-			
-		}
+			if (integerCount.containsKey(ints[i])) {
+				int tempCount = integerCount.get(ints[i]);
+			    tempCount += 1; 
+			    integerCount.put(ints[i], tempCount);
+			    
+		        	}
+			else { integerCount.put(ints[i],  1); }
+		}  
 		return integerCount;
 	}
 
@@ -193,17 +217,14 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		Map<String, Integer> strings = new HashMap<String, Integer>();
 		Map<String, Boolean> wordMultiple = new HashMap<String, Boolean>();
 		for(int i = 0; i < words.length; i++) {
 			String key = words[i];
-			if(strings.containsKey(key)) {
-				int count = strings.get(key);
-				count++;
-				strings.put(key,  count);
+			if(wordMultiple.containsKey(key)) {
+				wordMultiple.put(key, true);
 			}
 			else {	
-					strings.put(key, 1);
+					wordMultiple.put(key, false);
 			}
 		}
 	
