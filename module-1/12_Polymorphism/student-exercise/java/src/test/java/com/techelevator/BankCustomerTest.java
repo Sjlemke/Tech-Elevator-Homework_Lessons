@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 /**
  * BankCustomer
  */
-public class BankCustomerTest {
+public class BankCustomerTest  {
 
     private static Class customer;
     private static Class creditCard;

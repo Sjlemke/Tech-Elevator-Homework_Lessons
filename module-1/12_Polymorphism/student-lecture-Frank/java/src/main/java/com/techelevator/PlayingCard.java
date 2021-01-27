@@ -1,7 +1,7 @@
 package com.techelevator;
 
 public class PlayingCard {
-	
+	// 3 arg constructor
 	private int value;    
 	private String color;    
 	private String suit;     
@@ -36,7 +36,8 @@ public class PlayingCard {
 		return "PlayingCard [value=" + value + ", color=" + color + ", suit=" + suit + ", getValue()=" + getValue()
 				+ ", getColor()=" + getColor() + ", getSuit()=" + getSuit() + "]";
 	}
-	
+	public void showCard() {}  //method required for poly even though it does nothing
+	                           //all the subclasses have their own showCard() method.
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {

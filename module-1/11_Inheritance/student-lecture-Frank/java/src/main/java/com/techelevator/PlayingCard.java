@@ -16,9 +16,10 @@ public class PlayingCard {
 	 ***************************************************************************************/
 	
 	public PlayingCard(int value, String suit, String color) {
-		this.value = value;
-		this.suit  = suit;
-		this.color = color;
+		this.value = value; //this. is required to indicate 
+		this.suit  = suit;  // the current object
+		this.color = color;  //because the parameters have the same as data members
+		                     
 	}
 
 	/***************************************************************************************

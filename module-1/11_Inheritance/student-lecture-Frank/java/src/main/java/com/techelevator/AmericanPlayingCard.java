@@ -7,9 +7,14 @@ import java.util.TreeMap;
  * American Playing Card Class - subclass of generic PlayingCard
  ***************************************************************************************************/
 
-public class AmericanPlayingCard extends PlayingCard{
+public class AmericanPlayingCard extends PlayingCard{ //extends means this is subclass of playingcard
 	/************************************************************************************************
 	 * Constants for values related to American Playing Cards
+	 * 
+	 * since constants cannot be changed (final) we make them:
+	 * 
+	 * static - only one occurance of the variable regardless of the number of object defined.
+	 * final - cannot be changed once they are assigned a value
 	 ***********************************************************************************************/	
 	private static final int    DEFAULTCARDVALUE = 0;
 	private static final String DEFAULTCOLOR     = "BLACK";
@@ -19,6 +24,10 @@ public class AmericanPlayingCard extends PlayingCard{
 
 	/**************************************************************************************************
 	 * Maps used to validate/limit suits, colors and value names for American Playing Cards
+	 * 
+	 * use static to have only one occurance of the variable shared by all objects
+	 * since the contents of these Maps will be same for all AmericanPlayingCards,
+	 * we dont need more than one of each 
 	 *************************************************************************************************/	
 	
 	private static Map<String,  String> suitMap  = new HashMap<String , String>();  
@@ -35,8 +44,9 @@ public class AmericanPlayingCard extends PlayingCard{
 	 * 0-arg / Default Constructor
 	 **************************************************************************************************/		
 	public AmericanPlayingCard() 
-	{
+	{   //the keyword super references the super class - super() represents a super class ctor.
 		super(DEFAULTCARDVALUE, DEFAULTSUIT, DEFAULTCOLOR);  // Invoke 3-arg ctor in superclass
+		                                                     //using the default values for this class.
 	} 
 	/***************************************************************************************************
 	 * 2-arg Constructor for a user provided value and suit
@@ -53,6 +63,8 @@ public class AmericanPlayingCard extends PlayingCard{
 	}
 	/****************************************************************************************************
 	 * Initialize Maps to valid suit/color combinations and value names
+	 * 
+	 * set up the Maps with the suit/color and the value name associations. 
 	 ***************************************************************************************************/	
 	private static void initializeMaps() {
 		suitMap.put("SPADES"  , "BLACK");
