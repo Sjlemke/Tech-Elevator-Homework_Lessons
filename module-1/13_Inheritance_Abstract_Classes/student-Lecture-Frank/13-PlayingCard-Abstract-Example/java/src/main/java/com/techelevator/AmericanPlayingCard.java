@@ -17,7 +17,9 @@ public class AmericanPlayingCard extends PlayingCard{
 			static {             // static method to initialize maps before are ever used
 		       initializeMaps();
 	        }
-	
+	//by making the methid that calls initializesMap() static and anonymous
+			//it will be run automatically when a process that instantiates this class is run
+			
 	public AmericanPlayingCard() 
 	{
 		super(DEFAULTCARDVALUE, DEFAULTSUIT, DEFAULTCOLOR); // Call the PlayingCard ctor 
@@ -58,7 +60,10 @@ public class AmericanPlayingCard extends PlayingCard{
 		valueMap.put(13,"King");
 	}
 	
-	@Override
+	//a subclass may overrid a superclass method if it wants to change the behavior of the superclass method.
+	@Override //asks the compiler to verify that the method that follows is a valid Override
+	// an override method must have the same name and parameters must have same type and same order
+	
 	public String toString() {
 		return "AmericanPlayingCard: " 
 	          +"Value: "  + valueMap.get(getValue())

@@ -30,6 +30,9 @@ public class UsePlayingCards {
 		SwissPlayingCard aSwissCard3 = new SwissPlayingCard(10, "ACORNS");
 		System.out.println("anSwissCard3 is : \n" + aSwissCard3);
 		
+		//cannot access the private data of a class
+		
+		
 	System.out.println("\n----- Polymorphism example follows ------ \n");
 		
 		
