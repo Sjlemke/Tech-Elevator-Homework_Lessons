@@ -18,4 +18,12 @@ public class NonStart {
             return a.substring(1) + b.substring(1);
         }
     }
+
+	public Object NonStart(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
 }

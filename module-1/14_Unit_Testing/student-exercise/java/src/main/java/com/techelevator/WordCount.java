@@ -33,4 +33,9 @@ public class WordCount {
 
 		return output;
 	}
+
+	public int WordCount(String string) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
