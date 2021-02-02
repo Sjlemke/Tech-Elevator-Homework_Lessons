@@ -10,8 +10,9 @@ public class TestStringBits {
 	
 	@Test
 	public void test_return_Bits_Of_String() {
-	assertEquals("bits of string returned", "getBits", testCode.getBits("Hello"));
-
+	String res = testCode.getBits("Hello");
+	equals(res);	
+		   }
 	}
 
-}
+
