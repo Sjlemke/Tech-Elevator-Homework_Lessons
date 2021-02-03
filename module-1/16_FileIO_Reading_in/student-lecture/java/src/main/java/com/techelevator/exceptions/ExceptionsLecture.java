@@ -15,18 +15,18 @@ public class ExceptionsLecture {
 		 * code to handle it. */
 		System.out.println("The following cities: ");
 		String[] cities = new String[] { "Cleveland", "Columbus", "Cincinatti" };
-		try {
+		try { //if the code in this block throws an exception, let me see if I can handle it instead of terminating the program
 			System.out.println(cities[0]);
-			System.out.println(cities[1]);
+			System.out.println(cities[1]);  // this chunk is all the try block. 
 			System.out.println(cities[2]);
 			System.out.println(cities[3]);  // This statement will throw an ArrayIndexOutOfBoundsException
 			System.out.println("are all in Ohio."); // This line won't execute because the previous statement throws an Exception
-		} catch(ArrayIndexOutOfBoundsException e) {
+		} catch(ArrayIndexOutOfBoundsException e) { // this is the catch block. If this exception occurs in the preceding try block, I'll handle it. 
 			// Flow of control resumes here after the Exception is thrown
 			System.out.println("XXX   Uh-oh, something went wrong...   XXX");
 		}
-		
-		System.out.println();
+		   
+		System.out.println(); //execution resumes following the try block weather or not the exception was thrown. 
 		
 		/* try/catch blocks will also catch Exceptions that are thrown from method calls further down the stack */
 		try {
