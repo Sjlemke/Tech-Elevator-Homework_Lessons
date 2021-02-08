@@ -51,5 +51,10 @@ public class MyFileReader {
 	
 	//Bubble Up - means Exception bubbles up to the most recent catch block that handles the exception.If teh exception bubbles up to teh Operating System without having been handled the 
 	            //teh application is terminated with the system message. 
+	
+	
+    //defining a scanner object or file object takes up memory. Close file. 
+	
+	//Never close a keyboard scanner yourself. Java will do this for me every time. It can cause problems for other methods. 
 	    
 }

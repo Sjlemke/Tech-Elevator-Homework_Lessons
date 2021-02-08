@@ -11,7 +11,7 @@ public class Lecture {
 		
 		Scanner userInput = new Scanner(System.in);
 		
-		/* 
+		/* When you have a File object you can do a lot of stuff with it
 		 * The java.io.File class is a representation of file and directory path names.  It provides methods to inspect and 
 		 * modify file system objects.
 		 * 
@@ -23,14 +23,18 @@ public class Lecture {
 		System.out.print("Enter the path of a file or directory >>> ");
 		String path = userInput.nextLine();
 		File f = new File(path);
-
+            
 		/* 
 		 * The File class allows us to inspect various attributes of a file system object 
-		 */
-		 
+		 */   
+		    // The file class provides many methods to allow you access the File system of your computer
+		    //Does the file exist> How long is the file? (How many chars in the file 0 = file is empty)
+		    //Create new empty files. Create new directories, Remove/delete files, Remove/delete directories
+		
+		
 		/* ***************************
 		 * INSPECTING THE FILESYSTEM 
-		 * ***************************/
+		 * ***************************/ //f. will give you options.
 		
 		System.out.println();
 		if(f.exists()) { // returns true if a file or directory exists at the file system location, otherwise returns false
@@ -82,7 +86,7 @@ public class Lecture {
 		String fileName = userInput.nextLine();
 		File newFile = new File(newDirectory, fileName);
 		
-		newFile.createNewFile();
+		newFile.createNewFile();  //Create a new empty file specified in the File object
 		System.out.println();
 		System.out.println("name: "+newFile.getName());
 		System.out.println("absolutePath: "+newFile.getAbsolutePath());

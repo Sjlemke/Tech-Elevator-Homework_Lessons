@@ -54,10 +54,10 @@ public class FileWritingAppendToExistingFileExample {
 		// 3. Define a diskFileWriter object with the appendToFile switch
 		// 4. Define a BufferedWriter object for the diskFileWriter object
 		
-		if (outputFile.exists()) {
+		if (outputFile.exists()) {  //if file exists, do you want to replace it or append it?
 			String choiceLetter = ""; 
-			boolean isGoodResponse = false;
-			do {
+			boolean isGoodResponse = false; //this is a switch to hold if we have a good response from the user
+			do {  //loop at lesdt once while the condition at then end of the loop is true. //Do loops - always execute the loop once. Ask teh user if they want to replace or append.
 				System.out.print("Output file already exists - Do you want to Add to it or Replace it? (A / R): ");
 				String userResponse = userInput.nextLine();
 				choiceLetter = userResponse.substring(0,1).toUpperCase();
@@ -71,29 +71,35 @@ public class FileWritingAppendToExistingFileExample {
 						appendToFile = false;
 						isGoodResponse = true;
 						break;
-					default:
+					default:  //if they didnt give A or R, then its a bad response. 
 						isGoodResponse = false;
 						break;
 				}
-			}	while (!isGoodResponse);
+			}	while (!isGoodResponse);  //loop until you get good response. loop while we dont have good response.
 			}
-			else {
+			else { //do this if file does not exist
 				 // Create the file on the disk - file must exist before we can write to it
 				 outputFile.createNewFile();  // Will destroy any existing copy of the file
-			     }
+			     } //at this point we have an output file defined on the disk and whether it should be replaced or appended.
 
 		// Define a FileWriter object for the File with the append switch value
 		FileWriter aFileWriter = new FileWriter(outputFile, appendToFile);  // If the file already exists, it will overylay teh existing data
+		                   //define fileWriter for the file with the append switch. append is true or false. then make buffer writer, then make 
+		                   //print writer for the buffer writer. 
 		
 		// Define a BufferedWriter Object for the output file
 		BufferedWriter aBufferedWriter= new BufferedWriter(aFileWriter);
 		PrintWriter diskFileWriter = new PrintWriter(aBufferedWriter);
-		
-		
+		               //we need a printwriter for the bufferwriter so we can use the same methods as we did for system.out
+		               //
 		// Get a String format for the current timestamp to write to the file
 
         Timestamp timestampNow = Timestamp.valueOf(LocalDateTime.now());   // Get the current timestamp
-        
+                              //the class LocalDateTime is an object to represent a timestamp (data and time with fractional seconds)
+                              //LocalDate is an object that reps a date. LocalTime is obbject that reps time. 
+                             //.now() method returns the timestamp, date, time your computer thinks is current.
+                             //Timestamp.valueOf - returns a formatted version of the timestamp
+                             //the java Timestamp class holds a timestamp object
 		diskFileWriter.println("--------------------------------------------------");
 		diskFileWriter.println("Processing started: " + timestampNow);
 		diskFileWriter.println("--------------------------------------------------");
