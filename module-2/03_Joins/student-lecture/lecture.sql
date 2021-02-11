@@ -8,8 +8,11 @@
 --
 --  Joins are used when columns from multiple tables are required in a query
 --
--- INNER JOIN - Matching rows between tables 
--- 
+-- INNER JOIN - Matching rows between tables --  CLassic and Modern Joins. 
+      -- Do not forget the WHERE clause. 
+  -- Modern Syntax - you cannot forget the join condition. Its codes in the ON clause. 
+
+
 -- OUTER JOIN - All rows from both tables - the full set      
 ------------------------------------------------------------------------------------------------
 -- Inner Join syntax - 2 forms
@@ -75,6 +78,23 @@
 -- ********* INNER JOIN ***********
 
 -- Show the last_name of all the actors in the movie FINDING ANACONDA
+Select last_name    -- colums and the result
+  from actor     -- actor table. But cant find the film so needs a JOIN. Film is in Filkm table
+       inner join            -- link them, connect them from actor table, to actor Id table, to film table. Need 3 tables. 
+       film_actor 
+     on actor.actor_id = film_actor.actor_id -- match actors to film actors through actorid table
+       inner join 
+       film 
+     on film_actor.film_id = film.film_id 
+  Where title = 'FINDING ANACONDA' 
+  ;    
+  -- last_name is in actor table. 
+  --film title is in the film table
+  -- no direct link between actor and film
+  -- so we used the indirect link the film_actor table provided. 
+  
+  
+     
 
 -- Let's find out who made payment 16666:
 

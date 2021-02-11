@@ -35,10 +35,10 @@ Where continent = 'Africa'
 -- world sorted from highest to lowest. Recall: GNP is express in units of one million US Dollars 
 -- (highest per capita GNP in world: 37459.26)
 
-Select (37459.26*1000000)  / population
+Select ((gnp*1000000)  / population) as per_capita_GNP
 From country
-Where population != 0  
-Order by GNP desc
+Where population > 0  and gnp != 0 
+Order by per_capita_GNP desc
 ;
 
 -- 4. The average life expectancy of countries in South America.
@@ -107,9 +107,10 @@ Where countrycode = 'CHN'
 
 -- 13. The surface area of each continent ordered from highest to lowest.
 -- (largest continental surface area: 31881000, "Asia")
-Select SUM(surfacearea) continent
+Select SUM(surfacearea) AS sum_surface_area, continent
 From country
-Order by surfacearea DESC
+Group By country.continent
+Order by sum_surface_area DESC
 ;
 
 -- 14. The highest population density (population divided by surface area) of all 
@@ -131,9 +132,12 @@ ORDER BY  lifeexpectancy DESC
 -- the world ordered by the absolute value of the difference. Display both 
 -- difference and absolute difference.
 -- (smallest difference: 1.00, 1.00, "Ecuador")
-Select currentGNP / previousGNP
-From countries
-Where
+Select gnpold - gnp as difference 
+    , abs(gnpold - gnp as absolute_difference
+    , name 
+From country 
+Where gnp != 0 and gnpold is not null
+order by absolute_difference 
 ; 
 
 
