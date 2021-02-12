@@ -20,9 +20,9 @@
 --  DEFAULT - Specify a default value for column if no value is supplied on INSER
 ---------------------------------------------------------------------------------------------------------------------------------------
 -- Unit Of Work (UOW) - A recoverable sequence of operations within an application process
--- 
+--                    - all steps to have a completed piece of work have been completed
 -- BEGIN TRANSACTION - Mark the start of a unit of work
--- 
+--                
 -- COMMIT - End a unit of work and save changes - automatically done if no errors
 -- 
 -- ROLLBACK - End a unit of work and undo changes - automatically done if errors
@@ -55,8 +55,22 @@
 --  WHERE condition            -- scope of delete - if omitted, all rows are deleted                                        
 ---------------------------------------------------------------------------------------------------------------------------------------
 -- INSERT
-
+delete from countrylanguage where language = 'Klingon';
 -- 1. Add Klingon as a spoken language in the USA
+Begin transaction; -- start a unit of work - in case something goes wrong, we can undo and start over
+insert into countrylanguage  -- add a row to the country language table
+(countrycode, language, isofficial, percentage) -- list of the columns we are providing values for - all non null collums
+values('USA', 'Klingon', true, 16)  -- values for the collumns in the order of the list above
+;
+                --optionally we do a select to make sure insert worked.
+ select * 
+ from countrylanguage 
+ where countrycode = 'USA'
+ ;
+ 
+ Rollback;  -- undo any changes in this unit of work until we are sure they were done correctly. 
+
+
 
 -- 2. Add Klingon as a spoken language in Great Britain
 
@@ -64,10 +78,27 @@
 -- UPDATE
 
 -- 1. Update the capital of the USA to Houston
+begin transaction 
+update country
+     set capital = (select id from city where name = 'Houston')
+     where code = 'USA'
+     ;
+ 
+ select * from country where code = 'USA'
+ Rollback; 
+
 
 -- 2. Update the capital of the USA to Washington DC and the head of state
+begin transaction;
 
+update country
+      set capital = (select id from city where name = 'Washington'),
+      headofstate = 'Luke'
+        where code = 'USA'
 
+select * from country where capital = (select id from city where name = 'Washington')
+      
+rollback;
 -- DELETE
 
 -- 1. Delete English as a spoken language in the USA

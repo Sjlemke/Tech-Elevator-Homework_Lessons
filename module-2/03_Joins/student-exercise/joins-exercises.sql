@@ -201,16 +201,22 @@ From payment
 -- 15. The store ID, street address, total number of rentals, total amount of sales (i.e. payments), and average sale of each store.
 -- (NOTE: Keep in mind that while a customer has only one primary store, they may rent from either store.)
 -- (Store 1 has 7928 total rentals and Store 2 has 8121 total rentals)
-Select store_id, adress, Count(rental_id), AVG(amount) 
-from payment
+Select store.store_id, address.address, Count(store.store_id), sum(payment.amount), avg(payment.amount)
+from store
      inner join
-     rental
-     inner join
-     staff
-     inner join 
-     adress 
-     on staff.address_id = payment.payment_id
-
+     address
+     on store.address_id = address.address_id
+     join
+     inventory
+     on store.store_id = inventory.store_id
+      join 
+     rental 
+     on inventory.inventory_id = rental.inventory_id
+     join
+     payment
+     on rental.rental_id = payment.rental_id
+     group by store.store_id, address.address_id
+     ;
 
 -- 16. The top ten film titles by number of rentals
 -- (#1 should be â€œBUCKET BROTHERHOODâ€? with 34 rentals and #10 should have 31 rentals)
@@ -270,7 +276,9 @@ From actor
      inner join 
      film_actor
    on actor.actor_id = film_actor.actor_id 
-     
+   order by 1 desc
+   limit 10;
+     -- group by unique vslues. Puts Susan Davis's together. 
 
 -- 20. The top 5 â€œComedyâ€? actors ranked by number of rentals of films in the â€œComedyâ€? category starring that actor
 -- (#1 should have 87 rentals and #5 should have 72 rentals)
