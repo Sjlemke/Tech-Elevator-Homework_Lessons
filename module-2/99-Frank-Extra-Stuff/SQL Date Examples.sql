@@ -1,13 +1,15 @@
--- show today's date
+-- show today's date - yyyy-mm-dd (European format)
 select current_date as today
 ;   
 
 -- show today's date in mm/dd/yyyy format - to_char() to format date
 select to_char(current_date, 'mm/dd/yyyy') as today
 ;
+--SQL will let us do date arithmetic - duration between two date
 -- how many days until Christmas this year - subtract two dates to get duration in days
 select '12/25/2021' - current_date as day_until_Christmas
 ;
+--use date() function to an arithmetic with two literal dates (non-SQL date)
 -- be aware of result when calculating days between dates() - date() 
 select  date('12/31/2021') - date('12/01/2021')  as days_in_December
 ;

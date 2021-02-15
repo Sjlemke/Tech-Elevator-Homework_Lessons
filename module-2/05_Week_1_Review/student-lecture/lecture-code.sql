@@ -134,32 +134,75 @@ select * from countrylanguage where countrycode = (select code from country wher
 rollback;
 
 -- 2. Delete all occurrences of the Klingon language 
-
+begin transaction; 
+delete from countrylanguage where language = 'Klingon';
+rollback;
 
 -- REFERENTIAL INTEGRITY
 
 -- 1. Try just adding Elvish to the country language table.
+begin transaction; 
+insert into countrylanguage        -- add a row to the country language table
+(countrycode, language, isofficial, percentage) -- list of coullumns we are providing values for - all non null
+values(???, 'Elvish', ???, ??)      --values for the columns in the order 
+ select * from countrylanguage where language = 'Elvish'
+ ;
+
+rollback;
 
 -- 2. Try inserting English as a spoken language in the country ZZZ. What happens?
+       -- countrylanguage is a dependent of country table
+       --(its a foreign key must match a primary key value that already exists in the country table)
+       -- countrycode value in countrlanguage must match an existing code value in country
+       --when we try to insert a language for country code that is not in the country table 
+        -- we get a foreign key violation error. 
+  --this insert will fail bc zzz is not an existing primary key value in country table
+                     -- besure any value you specify as a foregin key valye has a match in parent
+                      -- either look at the data in the parent table or insert paretn rows before dependent rows
+ Begin transaction; 
+  insert into countrylanguage
+  values('ZZZ', 'English', false, 10)   -- values for the columns in the order of list above
+  ;
+  select * from countrylanguage where language = 'English';
+  rollback; 
 
 -- 3. Try deleting the country USA. What happens?
-
-
+begin transaction; 
+delete from country where code = 'USA';
+rollback;
+--country table has two dependents, countrylanguage and city
+--when deleting a row from a parent table, it may be restricted so that the row may only be deleted if it has no dependent rows.
+--in other words, no foreighn key matches to it.  
 -- CONSTRAINTS
 
 -- 1. Try inserting English as a spoken language in the USA
-
+  --this fails because a unique violation 
+begin transaction; 
+insert into countrylanguage  --add a row to the country language table
+(countrycode, language, isofficial, percentage)  --list of all collumns we are providing values for - all non null collumns
+values('USA', 'English', false, 90)
+;
+rollback; 
 -- 2. Try again. What happens?
 
 -- 3. Let's relocate the USA to the continent - 'Outer Space'
 
-
+  -- this update will fail due to outer space not being an allowable continent value 
+  --theres a check constraint on continent that limits the values
+begin transaction; 
+update country
+    set continent = 'Outer Space'
+    where code = 'USA' 
+    ;
+rollback; 
+  --constraints are stored in database tables - postgres tables 
+  
 -- How to view all of the constraints
 
 SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
 SELECT * FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE
 SELECT * FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS
-
+--must delete all depend rows before parent if delete of parent rows is restricted by referencial integrity.
 
 -- TRANSACTIONS
 
