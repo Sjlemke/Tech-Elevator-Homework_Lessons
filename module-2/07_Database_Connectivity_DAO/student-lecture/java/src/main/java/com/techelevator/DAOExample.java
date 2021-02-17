@@ -17,13 +17,13 @@ public class DAOExample {
 		
 		CityDAO dao = new JDBCCityDAO(worldDataSource);
 		
-		City smallville = new City();
-		smallville.setCountryCode("USA");
-		smallville.setDistrict("KS");
-		smallville.setName("Smallville");
+		City smallville = new City();   //Instantiate a new, empty City object
+		smallville.setCountryCode("USA");  //Assign values 
+		smallville.setDistrict("KS");      // to the new City object
+		smallville.setName("Smallville");  //using its setters
 		smallville.setPopulation(42080);
-		
-		dao.save(smallville);
+		     //Note: we did not a city_id because it comes from the data base manager
+		dao.save(smallville);  //Use the DAO 
 		
 		City theCity = dao.findCityById(smallville.getId());
 		

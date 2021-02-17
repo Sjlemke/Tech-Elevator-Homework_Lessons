@@ -19,7 +19,7 @@ public interface DepartmentDAO {
 	 * @return all matching departments as Department objects in a List
 	 */
 	public List<Department> searchDepartmentsByName(String nameSearch);
-
+     
 	/**
 	 * Update a department to the data store. Only called on departments that
 	 * are already in the data store.

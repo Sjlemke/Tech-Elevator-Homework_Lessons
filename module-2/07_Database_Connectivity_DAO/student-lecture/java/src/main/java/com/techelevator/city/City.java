@@ -1,11 +1,15 @@
 package com.techelevator.city;
+   //POJO for accessing the city table data in the world database
+   // Class should have the same naem at the table 
+   //Although not required, it is recommended the variable names in the POJO match the column names in the table
+   //
 
 public class City {
-	private Long id;
-	private String name;
-	private String countryCode;
-	private String district;
-	private int population;
+	private Long id;             //serial in the table - serial may be outside range of INT so we use LONG
+	private String name;         // varchar in the table
+	private String countryCode;  //bpchar in the table
+	private String district;     //varchar in the table
+	private int population;      //int4 (integer) in the table
 
 	public Long getId() {
 		return id;

@@ -153,7 +153,7 @@ public class ProjectsCLI {
 		printHeading("Add New Department");
 		String newDepartmentName = getUserInput("Enter new Department name");
 		Department newDepartment = new Department();
-//		newDepartment.setName(newDepartmentName);  // If your setter is not called "setName()", change this to what yours is called
+		newDepartment.setName(newDepartmentName);  // If your setter is not called "setName()", change this to what yours is called
 		newDepartment = departmentDAO.createDepartment(newDepartment);     // Use the DAO object to run DAO method
 //		System.out.println("\n*** "+newDepartment.getName()+" created ***");  // If your getter are not called "getName()", change this to what yours is called
 	}
@@ -165,7 +165,7 @@ public class ProjectsCLI {
 			System.out.println("\n*** Choose a Department ***");
 			Department selectedDepartment = (Department)menu.getChoiceFromOptions(allDepartments.toArray());
 			String newDepartmentName = getUserInput("Enter new Department name");
-//			selectedDepartment.setName(newDepartmentName);     // If your setter is not called "setName()", change this to what yours is called
+		selectedDepartment.setName(newDepartmentName);     // If your setter is not called "setName()", change this to what yours is called
 			departmentDAO.saveDepartment(selectedDepartment);  // Use the DAO object to run DAO method
 		} else {
 			System.out.println("\n*** No results ***");
@@ -202,7 +202,7 @@ public class ProjectsCLI {
 		System.out.println();
 		if(departments.size() > 0) {
 			for(Department dept : departments) {
-//				System.out.println(dept.getName()); // If your getter is not called "getName()", change this to what yours is called
+			System.out.println(dept.getName()); // If your getter is not called "getName()", change this to what yours is called
 			}
 		} else {
 			System.out.println("\n*** No results ***");
