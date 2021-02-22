@@ -39,7 +39,7 @@ public class JDBCDepartmentDAO implements DepartmentDAO {
 	public List<Department> searchDepartmentsByName(String nameSearch) {
 		ArrayList<Department> listOfDepartments = new ArrayList<Department>();
 		
-		String searchDepartmentNameSQL = "Select department_id from department where name = ?";
+		String searchDepartmentNameSQL = "Select department_id, name from department where name = ?";
 		SqlRowSet theDepartment = jdbcTemplate.queryForRowSet(searchDepartmentNameSQL, nameSearch);
 		if(theDepartment.next()) {
 			Department aDepartment = new Department();
@@ -53,7 +53,7 @@ public class JDBCDepartmentDAO implements DepartmentDAO {
 	@Override
 	public void saveDepartment(Department updatedDepartment) {
 		String updateDepartment = "UPDATE department " +
-								"Set name = ?" +
+								"Set name = ? " +
 								"Where department_id = ?";
 		jdbcTemplate.update(updateDepartment, updatedDepartment.getName(), updatedDepartment.getDepartment_id());
 	}

@@ -84,7 +84,7 @@ public class JDBCEmployeeDAO implements EmployeeDAO {
 	
 	public List<Employee> getEmployeesByProjectId(Long projectId) {
 		ArrayList<Employee> listOfEmployees = new ArrayList<>();
-		String searchEmployeeByProjectId = "SELECT employee_id, department_id, first_name, last_name, birth_date, gender, hire_date " +
+		String searchEmployeeByProjectId = "SELECT employee.employee_id, department_id, first_name, last_name, birth_date, gender, hire_date " +
 										   "FROM employee INNER JOIN project_employee ON employee.employee_id = project_employee.employee_id " +
 										   "WHERE project_id = ?";
 		SqlRowSet theEmployees = jdbcTemplate.queryForRowSet(searchEmployeeByProjectId, projectId);
@@ -117,3 +117,4 @@ public class JDBCEmployeeDAO implements EmployeeDAO {
 		theEmployee.setHire_date(results.getDate("hire_date").toLocalDate());
 		return theEmployee;
 	}
+}

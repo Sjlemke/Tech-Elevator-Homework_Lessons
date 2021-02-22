@@ -3,6 +3,8 @@ package com.techelevator;
 import static org.junit.Assert.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -20,7 +22,7 @@ import com.techelevator.projects.model.jdbc.JDBCDepartmentDAO;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING) //List tests in alphabetical order when you run them
 	
 public class TestJDBCDepartmentDAO {
-	
+private long department_id; 	
 	private static SingleConnectionDataSource dataSource; //define a refernce to a data source to use in the tests
 	
 	private JDBCDepartmentDAO departmentDAO; // define a refernce to the JDBC/DAO we want to test
@@ -62,16 +64,42 @@ public class TestJDBCDepartmentDAO {
 		                                  //assert - verify method did what is was supposed to
 		  
 		  newDepartment.setName("Sales");
-		  
-		  Department returnedDepartment;
-		  
+		  Department returnedDepartment; 
 		  returnedDepartment = departmentDAO.createDepartment(newDepartment);
-		  
 		  assertNotNull(returnedDepartment);
 		  assertEquals(newDepartment.getName(), returnedDepartment.getName());
-		  
-	  }
-	   
- 
+	}
+    @Test
+    public void testSaveDepartment() {	
+          Department newDepartment = new Department(); 
+          newDepartment.setName("Department of Redundancy Department");
+          departmentDAO.saveDepartment(newDepartment);
+          List<Department> results = departmentDAO.searchDepartmentsByName(newDepartment.getName());
+          assertNotNull(results);
+          assertEquals(newDepartment.getName(), results.get(0).getName());
+    }     
+   @Test
+   public void testGetAllDepartments() {
+   
+          List<Department> results = departmentDAO.getAllDepartments();
+          assertNotNull(results);
+          assertEquals(departmentDAO.getAllDepartments().size(), results.size());
+
+          
+   }
+          
+    @Test 
+    public void testSearchDepartmentByName() {
+    	Department newDepartment = new Department();
+        newDepartment.setName("Department of Redundancy Department");
+    	List<Department> results = departmentDAO.searchDepartmentsByName(newDepartment.getName());
+        assertEquals(newDepartment.getName(), results.get(0).getName());
+    }
 }
+    
+    
+    
+   
+	   
+
 
