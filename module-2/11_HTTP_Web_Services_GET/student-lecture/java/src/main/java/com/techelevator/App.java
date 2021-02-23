@@ -4,20 +4,23 @@ import com.techelevator.services.ConsoleService;
 import com.techelevator.services.HotelService;
 
 public class App {
-
+     //Define a constaint to teh base/main part of the server URL, we are using 
     private static final String API_BASE_URL = "http://localhost:3000/";
 
     public static void main(String[] args) {
         int menuSelection = 999;
         int hotelId = -1;
-
-        ConsoleService consoleService = new ConsoleService();
-        HotelService hotelService = new HotelService(API_BASE_URL);
+   // instantiate object for the servicess we are using so we can access the methods in the service
+        ConsoleService consoleService = new ConsoleService();  //handle all console interactions 
+        HotelService hotelService = new HotelService(API_BASE_URL); //handle all hotel data resource interactions
 
         while (menuSelection != 0) {
-            menuSelection = consoleService.printMainMenu();
-            if (menuSelection == 1) {
-                System.out.println("Not implemented");
+            menuSelection = consoleService.printMainMenu(); //use the ConsoleService to display a menu and get response
+            if (menuSelection == 1) {      // process based on the menu selection made by the user
+               consoleService.printHotels(hotelService.listHotels());
+            	
+            	// System.out.println("Not implemented");//Call hotel services to get the hotel data in an array
+                                                       //and then call the console service to print an array of hotels 
             } else if (menuSelection == 2) {
                 System.out.println("Not implemented");
             } else if (menuSelection == 3) {
