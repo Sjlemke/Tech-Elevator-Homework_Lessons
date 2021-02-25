@@ -1,5 +1,7 @@
 package com.techelevator.reservations.dao;
 
+//This is a list of the methods available for accessing Hotel Informations
+
 import com.techelevator.reservations.models.Hotel;
 
 import java.util.List;

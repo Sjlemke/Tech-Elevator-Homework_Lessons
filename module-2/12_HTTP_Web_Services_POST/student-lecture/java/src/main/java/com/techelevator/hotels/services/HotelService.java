@@ -17,7 +17,7 @@ public class HotelService {
   private final RestTemplate restTemplate = new RestTemplate();
   private final ConsoleService console = new ConsoleService();
 
-  public HotelService(String url) {
+  public HotelService(String url) {  //constructor for the HotelService that accepts the base URL
     BASE_URL = url;
   }
 
@@ -28,20 +28,45 @@ public class HotelService {
    * @return Reservation
    */
   public Reservation addReservation(String newReservation) {
-    // TODO: Implement method
-    return null;
+	  //To add a reservation to the API server we need a POST HTTP request
+	  Reservation aReservation = makeReservation(newReservation);
+	  //Now that we have a reservation object we need to use API to add it to the API resource
+	  //We will use an HTTP Post request to do 
+	  //An HTTP post required headers and the data to be added in the body of teh request 
+	  HttpHeaders theHeaders = new httpHeaders();
+	  theHeaders.setContentType(MediaType.APPLICATION_JSON); //define a header object to hold the header info for the
+	                                                        //Set the content attribute of the headers to be APPLICATION_JSON
+	                                                        //MediaType is a group of valid constants for request data type.
+	  
+	  HTTPEntity anEntity = new HttpEntity(aReservation, theHeaders); //Instantiate an HttpEntity object with the reservation object
+	                                                                  //to be added to the API resource and the headers
+	  
+	  //Call the API with a Post request and the httpEntity we created 
+	  aReservation = restTempplate.postForObject
+	  
+    return aReservation;
   }
 
   /**
    * Updates an existing reservation by replacing the old one with a new
    * reservation
    *
-   * @param CSV
-   * @return
+   * @param CSV - a comma delimited string with the new data
+   * @return - http PUT does not return anything so neither are we! - return the reservation used to update
    */
   public Reservation updateReservation(String CSV) {
-    // TODO: Implement method
-    return null;
+	  //to update we use a PUT Http request
+	  Reservation aReservation = makeReservation(CSV); //use helper method to create a new reservstion to send to API server
+  
+	  //create the headers 
+	  HttpHeaders theHeaders = new httpHeaders(); 
+	  theHeaders.setContentType(MediaType.APPLICATION_JSON);
+	  HttpEntity anEntity = new HttpEntity(aReservation, theHeaders);
+	  
+	  //call the API with an HTTP PUT to update the Reservation on the API resource
+	  restTemplate.put(BASE_URL + "reservations", anEntity); //http put does not return anything
+	  
+	  return aReservation;
   }
 
   /**

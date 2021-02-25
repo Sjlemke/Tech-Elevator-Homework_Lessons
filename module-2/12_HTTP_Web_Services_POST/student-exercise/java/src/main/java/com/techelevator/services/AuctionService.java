@@ -67,17 +67,60 @@ public class AuctionService {
 
     public Auction add(String auctionString) {
         // place code here
-        return null;
-    }
+       Auction aAuction = makeAuction(auctionString);           // use the helper method to create a auction object
+       HttpHeaders theHeaders = new HttpHeaders();  
+       theHeaders.setContentType(MediaType.APPLICATION_JSON); 
+       HttpEntity anEntity = new HttpEntity(aAuction, theHeaders); 
+       try {
+           aAuction = restTemplate.postForObject(API_URL, anEntity, Auction.class);
+           }	                                                                              // it knows you already have the object
+   	    catch (RestClientResponseException exceptionObject) {  // if there is a response error display status code and message
+   	    	console.printError(exceptionObject.getRawStatusCode() + exceptionObject.getStatusText());
+   	    	return null;
+   	    }
+   	    catch (ResourceAccessException exceptionObject) {      // if there is an error with the API trying to access the data resource
+   	    	console.printError(exceptionObject.getMessage());
+   	    	return null;
+   	    }
 
+       
+        return aAuction;
+    }
     public Auction update(String auctionString) {
-        // place code here
-        return null;
-    }
+    	Auction aAuction = makeAuction(auctionString); 
+   	  	HttpHeaders theHeaders = new HttpHeaders();
+   	  	theHeaders.setContentType(MediaType.APPLICATION_JSON);
+   	  	HttpEntity anEntity = new HttpEntity(aAuction, theHeaders);
+   	  	
+   	 try {
+   		 
+    	  	restTemplate.put( API_URL + "/" + aAuction.getId(), anEntity);
+         }	                                                                              // it knows you already have the object
+ 	    catch (RestClientResponseException exceptionObject) {  // if there is a response error display status code and message
+ 	    	console.printError(exceptionObject.getRawStatusCode() + exceptionObject.getStatusText());
+ 	    	return null;
+ 	    }
+ 	    catch (ResourceAccessException exceptionObject) {      // if there is an error with the API trying to access the data resource
+ 	    	console.printError(exceptionObject.getMessage());
+ 	    	return null;
+ 	    }
 
+   	  	return aAuction;
+    }
     public boolean delete(int id) {
-    	// place code here
-    	return false; 
+    	try {
+    	restTemplate.delete(API_URL + "/" + id);	
+    	}// it knows you already have the object
+    	    catch (RestClientResponseException exceptionObject) {  // if there is a response error display status code and message
+    	    	console.printError(exceptionObject.getRawStatusCode() + exceptionObject.getStatusText());
+    	    	return false;
+    	    }
+    	    catch (ResourceAccessException exceptionObject) {      // if there is an error with the API trying to access the data resource
+    	    	console.printError(exceptionObject.getMessage());
+    	    	return false;
+    	    }
+
+		return true;
     }
 
     private HttpEntity<Auction> makeEntity(Auction auction) {

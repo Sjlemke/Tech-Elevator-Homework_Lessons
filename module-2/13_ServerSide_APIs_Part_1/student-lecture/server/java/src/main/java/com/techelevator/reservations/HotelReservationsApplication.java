@@ -1,5 +1,5 @@
 package com.techelevator.reservations;
-
+//This is our API server - this is what we start
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
