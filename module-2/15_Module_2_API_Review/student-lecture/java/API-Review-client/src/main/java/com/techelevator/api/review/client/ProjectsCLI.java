@@ -75,7 +75,7 @@ public class ProjectsCLI {
 		this.menu = new Menu(System.in, System.out);
 		// postgres is a Data Base Mangager which contains many databases which contains many tables
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/projects");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/apireview"); //name of the data base to access
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("postgres1");
 		
@@ -142,7 +142,9 @@ public class ProjectsCLI {
 
 	private void handleListAllDepartments() {
 		printHeading("All Departments");
+		RestTemplate callAPI = new RestTemplate();
 		List<Department> allDepartments = departmentDAO.getAllDepartments();
+		
 		listDepartments(allDepartments);
 	}
 
