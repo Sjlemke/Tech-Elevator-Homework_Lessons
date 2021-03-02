@@ -40,12 +40,11 @@ public class Cart {
 		this.created = created;
 	}
 
-	public Cart(String username, String cookieValue, LocalDate created) {
+	public Cart() {
 		this.username = username;
 		this.cookieValue = cookieValue;
 		this.created = created;
 	}
 
-	public Cart() {}
 
 }

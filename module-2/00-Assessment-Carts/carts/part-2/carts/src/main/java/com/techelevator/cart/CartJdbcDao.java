@@ -7,6 +7,8 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import com.techelevator.cart.Cart;
+
 public class CartJdbcDao implements CartDao {
 
 	private JdbcTemplate jdbcTemplate;
@@ -20,13 +22,18 @@ public class CartJdbcDao implements CartDao {
 
 	@Override
 	public void save(Cart newCart) {
-		// Implement this method to save cart to database
+		String sqlInsertCart = "INSERT INTO cart(id, username, name) " +
+				                "VALUES(?, ?, ?)";
+		
+		
+		jdbcTemplate.update(sqlInsertCart, newCart.getId(),          
+				   newCart.getId(),        
+				   newCart.getUsername());  
 	}
 
 	@Override
 	public List<Cart> getAllCarts() {
-		// Implement this method to pull in all carts from database
-
+		ArrayList<Cart> listOfCart = new ArrayList<Cart>();
 		return null;
 	}
 
@@ -37,6 +44,18 @@ public class CartJdbcDao implements CartDao {
 		cartRow.setCookieValue(results.getString("cookie_value"));
 		cartRow.setCreated(results.getDate("created").toLocalDate());
 		return cartRow;
+	}
+
+	@Override
+	public void update(Cart cart) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
