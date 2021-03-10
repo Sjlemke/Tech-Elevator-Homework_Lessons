@@ -1,0 +1,56 @@
+
+<header> 
+    <title> Community FanPage</title>
+    <img src="img/Community-008.jpeg" alt="Community Logo" />
+
+</header>
+<p>Cast of Community</p>
+<table>
+    <thead>
+        <tr>
+            <th>Character</th>
+            <th>Actor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Jeff Winger</th>
+            <td>Joel McHale</td>
+        </tr>
+        <tr>
+            <td>Annie Edison</th>
+            <td>Alison Brie</td>
+        </tr>
+        <tr>
+            <td>Troy Barnes</th>
+            <td>Donald Glover</td>
+        </tr>
+        <tr>
+            <td>Britta Perry</th>
+            <td>Gillian Jacobs</td>
+        </tr>
+        <tr>
+            <td>Abed Nadir</th>
+            <td>Danni Pudi</td>
+        </tr>
+        <tr>
+            <td>Shirley Bennett</th>
+            <td>Yvette Nicole Brown</td>
+        </tr>
+        <tr>
+            <td>Pierce Hawthorn</th>
+            <td>Chevy Chase</td>
+        </tr>
+    </tbody>
+</table>
+<form action="http://localhost:3000/api/users/login" method="POST">
+</form>
+<input name="firstName" type="text" />
+  <input name="lastName" type="text" />
+  <input name="email" type="email" />
+  <input date="date of birth" type="date" />
+  <input color="favorite color" type="color" />
+  <input number="favorite number" type="number" />
+  <input submit="confirm data is correct" type="submit" />
+
+</html>

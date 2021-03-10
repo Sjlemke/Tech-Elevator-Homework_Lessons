@@ -40,7 +40,7 @@ public class AuctionServiceTests {
 
         // Act
         Auction[] allAuctions = auctionService.getAll();
-
+         
         // Assert
         assertNotNull(allAuctions);
         assertEquals(auctions.length, allAuctions.length);
