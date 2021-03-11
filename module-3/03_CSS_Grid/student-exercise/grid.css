@@ -1,0 +1,112 @@
+#main-grid { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20 px;
+    column-gap: 50px;
+    align-items: center;
+
+    grid-template-areas: 
+      "mainHeadline mainHeadline mainPicture"
+      "mainQuote mainQuote mainPicture"
+      "mainProfile mainProfile mainContact"
+      "expGrid expGrid expGrid"
+      ;
+}
+#experience-grid {
+    display:grid; 
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 50px;
+    grid-area: expGrid;
+
+    grid-template-areas: 
+    "expCode expCode"
+    "expDB expDB"
+    "expWeb expDesign"
+    ;
+}
+
+#headline {
+    grid-area: mainHeadline;
+}
+#student-picture {
+    grid-area: mainPicture;
+    text-align: center;
+    }
+#student-quote {
+    grid-area: mainQuote;
+}
+#student-profile {
+    grid-area: mainProfile;
+}
+#student-contact {
+    grid-area:mainContact;
+    text-align: center;
+}
+#experience-code {
+    grid-area:expCode;
+}
+#experience-database {
+   grid-area:expDB;
+}
+#experience-web {
+    grid-area:expWeb;
+}
+#experience-design {
+    grid-area:expDesign;
+}
+
+@media screen and (max-width: 1024px) {
+    #main-grid {
+        column-gap: 35px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+           "mainHeadline mainHeadline"
+           "mainQuote mainPicture"
+           "mainQuote mainContact"
+           "mainProfile mainProfile"
+           "expGrid expGrid"
+           ;
+    }
+
+#experience-grid {
+     row-gap: 20px;
+     column-gap: 20px
+     grid-template-columns: 1fr 1fr;
+     align-items: baseline;
+     grid-template-areas:
+       "expCode expWeb"
+       "expDB expDesign" 
+       ;
+}
+}
+
+@media screen and (max-width: 450px) {
+    #main-grid {
+        column-gap: 35px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "mainHeadline"
+        "mainQuote"
+        "mainPicture" 
+        "mainContact"
+        "mainProfile"
+        "expGrid"
+        ;
+
+    }
+
+#experience-grid {
+     row-gap: 20px;
+     column-gap: 20px;
+     grid-template-columns: 1fr;
+     text-align: center;
+     grid-template-areas:
+        "expCode"
+        "expWeb"
+        "expDB"
+        "expDesign"
+        ;
+    }
+
+}
