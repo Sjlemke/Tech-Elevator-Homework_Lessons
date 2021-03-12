@@ -1,0 +1,82 @@
+/* These are our colors for the page */
+:root {
+   /* green */
+   --primary-color: rgba(156, 205, 80, 1.0); 
+   --primary-color-border: rgba(156, 205, 80, 0.7);
+   /* blue */
+   --secondary-color: rgba(129, 203, 207, 1);
+   /* white */
+   --tertiary-color: rgb(255, 255, 255);
+   --tertiary-color-border: rgba(255, 255, 255, 0.6);   
+   --text-color: rgba(30, 31, 33, .9);   
+   --blue: rgba(129, 200, 225, 1);
+}
+
+/* Controls the default size and font for our page elements */
+* {
+   box-sizing: border-box;
+   font-family: "Roboto Slab", serif;
+}
+
+nav ul {
+   margin: 0;
+   padding: 0;
+}
+
+/* Limits the size of our leprauchaun image to the container */
+section#order-now img {
+   width: 100%;
+}
+
+
+/* Zooms the image to retain aspect ratio. This is OK if the image 
+   is repetitive like four-leaf clovers 
+*/
+main img {
+   object-fit: cover;
+}
+
+/* Changes the default styling for hyperlinks */
+a {
+   color: var(--text-color);
+   text-decoration: none;
+}
+
+a:hover {
+   text-decoration: underline;
+}
+
+/* Used to center an item */
+.center {
+   display: block;
+   margin: 0 auto;
+}
+
+/*
+   Add a 🍀 for the <li> in the <main>
+*/
+main li:before {
+   content: '🍀'; 
+   margin-left: -31px;
+   padding-right: 8px;
+}
+
+
+/* 
+   <header> styles  
+*/
+
+header img {
+   height: 100px;
+   width: auto;
+}
+
+/*
+   <img> in <main> styles
+*/
+
+main img {
+   height: 350px;
+   width: 35%;
+}
+
