@@ -27,7 +27,11 @@ function printToConsole(value) {
  * @param {number} firstParameter the first parameter to multiply
  * @param {number} secondParameter the second parameter to multiply
  */
-
+   function multiplyTogether(num1, num2) {
+     let result = num1 * num 2;
+     return result; 
+       //an alt solution would be to return num1 + num2;
+   }
 /**
  * This version makes sure that no parameters are ever missing. If
  * someone calls this function without parameters, we default the
@@ -38,6 +42,11 @@ function printToConsole(value) {
  * @param {number} [firstParameter=0] the first parameter to multiply
  * @param {number} [secondParameter=0] the second parameter to multiply
  */
+function multiplyNoUndefined(firstParameter=0, secondParameter=0) {
+  console.log('1st Parameter: ${firstParameter}')
+  console.log('2nd Parameter: ${secondParamter}')
+  return firstParameter * secondParameter
+)
 
 
  
@@ -89,7 +98,7 @@ function scopeTest() {
 
 function createSentenceFromUser(name, age, listOfQuirks = [], separator = ', ') {
   let description = `${name} is currently ${age} years old. Their quirks are: `;
-  return description + listOfQuirks.join(separator);
+  return description + listOfQuirks.join(separator); //join takes elements of array and turn it into a string with whatever seperater it gives us
 }
 
 /**
@@ -121,7 +130,7 @@ function allDivisibleByThree(numbersToFilter) {}
  * The map function will return an array created from the elements passed to it
  * 
  * @param - None
- * @returns {arrray created from values passed to it}
+ * @returns {array created from values passed to it}
  */
 
 function mapArrayFunctionExampleFromBook() {
