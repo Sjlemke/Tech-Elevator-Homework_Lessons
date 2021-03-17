@@ -105,18 +105,22 @@ function getFullAddressesOfProperties(objects) {
                 object.streetType + ' ' + object.city + ' ' + object.state + ' ' + object.zip;})
     return myMap; 
 }
+
 /*
  * Write and document a function called findLargest.
  *
  * Using `forEach`, find the largest element in an array.
  * It must work for strings and numbers.
  */
-   function findLargest(array){
-              array.sort();
-              return array[array.length -1];
-        
-          }
-   
+     
+   function findLargest(array) {
+       array.sort();
+       return array[array.length - 1];
+
+   }
+
+
+   /*
 /*
  * CHALLENGE
  * Write and document a function called getSumOfSubArrayValues.
