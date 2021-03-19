@@ -1,3 +1,6 @@
+const shoppingList = document.getElementById('groceries');
+
+
 let allItemsIncomplete = true;
 const pageTitle = 'My Shopping List';
 const groceries = [
@@ -10,32 +13,76 @@ const groceries = [
   { id: 7, name: 'Grapes', completed: false },
   { id: 8, name: 'Steak', completed: false },
   { id: 9, name: 'Salad', completed: false },
-  { id: 10, name: 'Tea', completed: false }
-];
+  { id: 10, name: 'Tea', completed: false }];
 
-/**
- * This function will get a reference to the title and set its text to the value
- * of the pageTitle variable that was set above.
- */
-function setPageTitle() {
+
+  function setPageTitle() {
   const title = document.getElementById('title');
-  title.innerText = pageTitle;
-}
+  title.innerText = pageTitle;}
 
-/**
- * This function will loop over the array of groceries that was set above and add them to the DOM.
- */
-function displayGroceries() {
+
+  function displayGroceries() {
   const ul = document.querySelector('ul');
+  
   groceries.forEach((item) => {
     const li = document.createElement('li');
     li.innerText = item.name;
     const checkCircle = document.createElement('i');
     checkCircle.setAttribute('class', 'far fa-check-circle');
     li.appendChild(checkCircle);
-    ul.appendChild(li);
-  });
-}
+    ul.appendChild(li);});}
 
-setPageTitle();
-displayGroceries();
+    document.addEventListener("DOMContentLoaded", () => {
+  
+      setPageTitle();
+      displayGroceries();
+
+  const tasks = document.querySelectorAll('li');
+
+tasks.forEach((task) => {
+  task.addEventListener('click', (eventObject) => {
+      if (!eventObject.target.classList.contains('completed')) {
+          eventObject.target.classList.add('completed');
+          eventObject.target.querySelector('i').classList.add('completed');}});
+
+
+  task.addEventListener('dblclick', (eventObject) => {
+  if(eventObject.target.classList.contains('completed')) {
+    eventObject.target.classList.remove('completed');
+    eventObject.target.querySelector('i').classList.remove('completed')}})});
+   
+   
+    const completeAll = document.getElementById('toggleAll');
+    completeAll.addEventListener('click', () => {
+      tasks.forEach((task) => {
+        task.classList.add('completed');
+        task.querySelector('i').classList.add('completed');})})})
+
+const allComplete = document.getElementById('toggleAll');
+
+allComplete.addEventListener('click'), () => {
+    if (allItemsIncomplete === true) {
+    singleRow.forEach((row) => {
+      row.classList.add('completed');
+      row.querySelector('i').classList.add('completed');
+    }
+    allItemsIncomplete = false;
+    completeToggle()}
+    
+    singleRow.forEach((row) => {
+      row.classList.remove('completed')
+      row.querySelector('i').classList.remove('Completed'));
+    }
+    allItemsIncomplete = true;
+    completeToggle();
+    )
+
+
+    }
+  
+document.addEventListener('DOMContentLoaded', () => {
+
+  display = document.getElementById('display');
+  
+
+}
