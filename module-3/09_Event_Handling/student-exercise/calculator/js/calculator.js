@@ -13,7 +13,7 @@ function performOperation() {
 
   switch(operator) {
     case '+' :
-      result = previous + current;
+      result = previous + current; 
     break;
     case '-' :
         result = previous - current;

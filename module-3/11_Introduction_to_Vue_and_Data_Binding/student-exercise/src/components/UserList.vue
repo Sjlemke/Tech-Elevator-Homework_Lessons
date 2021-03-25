@@ -24,6 +24,15 @@
         </td>
       </tr>
       <!-- user listing goes here -->
+     <tr v-for="(value, key) in users" v-bind:key="key">
+       <td>{{value.firstName}}</td>
+     <td>{{value.lastName}}</td>
+    <td>{{value.username}}</td>
+    <td>{{value.emailAddress}}</td>
+    <td>{{value.status}}</td>
+     </tr>
+   
+
     </tbody>
   </table>
 </template>
@@ -40,9 +49,28 @@ export default {
         { firstName: 'Ben', lastName: 'Carter', username: 'bcarter', emailAddress: 'bcarter@gmail.com', status: 'Active' },
         { firstName: 'Katie', lastName: 'Jackson', username: 'kjackson', emailAddress: 'kjackson@yahoo.com', status: 'Active' },
         { firstName: 'Mark', lastName: 'Smith', username: 'msmith', emailAddress: 'msmith@foo.com', status: 'Disabled' }
-      ]
+      ],
+      filter: {firstName: '', lastName: '', username: '', emailAddress: '', status: '' }
     }
-  }
+    },
+    computed: {
+       filteredList() {
+         return this.users.filter(user=>{
+           const firstName = user.firstName.toLowerCase();
+           const lastName = user.lastName.toLowerCase();
+           const username = user.username.toLowerCase();
+           const emailAddress = user.emailAddress.toLowerCase();
+           const status = user.status.toLowerCase();
+           const mySearch = this.filter;
+
+           return firstName.includes(mySearch.firstName.toLowerCase) ||
+           lastName.includes(mySearch.lasttName.toLowerCase) ||
+           username.includes(mySearch.username.toLowerCase) ||
+           emailAddress.includes(mySearch.emailAddress.toLowerCase) ||
+           status.includes(mySearch.status.toLowerCase) 
+         });
+      }
+    }
 }
 </script>
 
