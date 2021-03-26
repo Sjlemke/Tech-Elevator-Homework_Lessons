@@ -12,7 +12,7 @@
     <tbody>
       <tr>
         <td><input type="text" id="firstNameFilter" v-model="filter.firstName"/></td>
-        <td><input type="text" id="lastNameFilter"  v-model="filter.lasttName" /></td>
+        <td><input type="text" id="lastNameFilter"  v-model="filter.lasttName"/></td>
         <td><input type="text" id="usernameFilter"  v-model="filter.username"/></td>
         <td><input type="text" id="emailFilter"  v-model="filter.emailAddress" /></td>
         <td>
