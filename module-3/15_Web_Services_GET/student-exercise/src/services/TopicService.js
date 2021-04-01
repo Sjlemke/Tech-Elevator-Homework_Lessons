@@ -10,8 +10,7 @@ export default {
     return http.get('/topics');
   },
 
-  getMessages(topics) {
-    return http.get(`/topics/${id}`);
+  getMessages(topicId) {
+    return http.get(`/topics/${topicId}`);
+    }
   }
-
-}
